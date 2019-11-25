@@ -40,7 +40,7 @@ if __name__ == "__main__":
     # print(NUM_CLASSES)
     
     # resnet V1
-    EPOCHS = 1 # 200
+    EPOCHS = 200
     USE_AUGMENTATION = True
     DEPTH = 3 * 6 + 2
     model = resnet_v1(input_shape=(224,224,3), depth=DEPTH, num_classes=NUM_CLASSES)
