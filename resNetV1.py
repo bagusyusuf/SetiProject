@@ -2,6 +2,7 @@ from tensorflow.keras.layers import Input, add, Activation, Dense, Flatten, Aver
 from tensorflow.keras.models import Model
 from resnetLayer import resnet_layer
 
+
 def resnet_v1(input_shape, depth, num_classes=10):
     """ResNet Version 1 Model builder [a]
 

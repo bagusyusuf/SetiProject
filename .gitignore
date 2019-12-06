@@ -1,3 +1,4 @@
 # Ignore temporary folder
 .ipynb_checkpoints/
+.vscode/
 __pychache__/
