@@ -1,8 +1,4 @@
 # Ignore temporary folder
 .ipynb_checkpoints/
-<<<<<<< HEAD
 .vscode/
-__pychache__/
-=======
 __pycache__/
->>>>>>> Fixed typo in .gitignore
