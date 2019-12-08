@@ -173,6 +173,10 @@ if __name__ == "__main__":
         target_size=(args.image_width, args.image_height),
         batch_size=args.batch_size,
     )
+    # TODO: WIP
+    preprocessed = preprocess(train_it)
+    for X, y in preprocessed:
+        pass
     valid_it = testDatagen.flow_from_directory(
         "./seti-data/primary_small/valid",
         target_size=(args.image_width, args.image_height),
