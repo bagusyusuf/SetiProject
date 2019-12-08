@@ -3,12 +3,16 @@ import time
 import numpy as np
 import tensorflow
 
-from resNetV1 import resnet_v1
 from learningRateScheduler import lr_schedule
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.callbacks import ModelCheckpoint, LearningRateScheduler, ReduceLROnPlateau
+
 from dataPreparation import loadData, preprocess
+from helper import hms_string
+
+from resNetV1 import resnet_v1
+from sklearn import preprocessing
 
 
 if __name__ == "__main__":
@@ -81,12 +85,16 @@ if __name__ == "__main__":
     IMAGE_WIDTH = 96
     IMAGE_HEIGHT = 96
 
+    print("load data")
+
     (xTrain, yTrainStr) = loadData(trainPath,
                                    preprocess=[preprocess, IMAGE_WIDTH,  IMAGE_HEIGHT])
     (xVal, yValStr) = loadData(valPath, preprocess=[
         preprocess, IMAGE_WIDTH,  IMAGE_HEIGHT])
     (xTest, yTestStr) = loadData(testPath, preprocess=[
         preprocess, IMAGE_WIDTH,  IMAGE_HEIGHT])
+
+    print("data loaded")
 
     # prepare dataset
     le = preprocessing.LabelEncoder()
@@ -106,9 +114,9 @@ if __name__ == "__main__":
     input_shape = xTrain.shape[1:]
 
     # Normalize data.
-    xTrain = xTrain.astype('float32') * 1./255
-    xVal = xVal.astype('float32') * 1./255
-    xTest = xTest.astype('float32') * 1./255
+    xTrain = xTrain.astype('float32') /255
+    xVal = xVal.astype('float32') /255
+    xTest = xTest.astype('float32') /255
 
     # If subtract pixel mean is enabled
     if SUBTRACT_PIXEL_MEAN:
@@ -143,7 +151,9 @@ if __name__ == "__main__":
                                    patience=5,
                                    min_lr=0.5e-6)
 
-    # start_time = time.time()
+    # calculate time
+    start_time = time.time()
+
     checkpointer = ModelCheckpoint(
         filepath="./modelCheckpoin/weights.h5", verbose=1, save_best_only=True)
     callbacks = [lr_reducer, lr_scheduler, checkpointer]
@@ -215,9 +225,10 @@ if __name__ == "__main__":
                                 epochs=EPOCHS, verbose=1, workers=1,
                                 callbacks=callbacks, use_multiprocessing=False)
 
-    # elapsed_time = time.time() - start_time
+    elapsed_time = time.time() - start_time
 
     # scores = model.evaluate_generator(test_it, verbose=0)
     scores = model.evaluate(xTest, yTest, verbose=0)
+    print("128Elapsed time: {}".format(hms_string(elapsed_time)))
     print(scores)
     model.save('./model/test_96_resV1.h5')

@@ -3,7 +3,7 @@ import numpy as np
 import os
 
 
-def preprosesssing(image, imageWidth, imageHeight):
+def preprocess(image, imageWidth, imageHeight):
     return cv2.resize(image, (imageWidth, imageHeight))
 
 
