@@ -5,9 +5,9 @@ from config import Defaults
 import numpy as np
 from resNetV1 import resnet_v1
 from learningRateScheduler import lr_schedule
-from keras.preprocessing.image import ImageDataGenerator
-from keras.optimizers import Adam
-from keras.callbacks import (
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+from tensorflow.keras.optimizers import Adam
+from tensorflow.keras.callbacks import (
     ModelCheckpoint,
     LearningRateScheduler,
     ReduceLROnPlateau,
