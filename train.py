@@ -198,9 +198,7 @@ if __name__ == "__main__":
         # (std, mean, and principal components if ZCA whitening is applied).
         datagen.fit(xTrain)
 
-        # with tensorflow.device("/gpu:0"):
-        # TODO:
-        with tensorflow.device("cpu"):
+        with tensorflow.device("/gpu:0"):
             data_flow = fft_process(
                 datagen.flow(xTrain, yTrain, batch_size=args.batch_size)
             )
