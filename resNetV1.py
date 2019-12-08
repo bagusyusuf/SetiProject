@@ -12,10 +12,14 @@ from resnetLayer import resnet_layer
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 def resnet_v1(input_shape, depth, num_classes=10):
 =======
 def resnet_v1(input_shape: np.array, depth: int, num_classes: int = 10) -> Model:
 >>>>>>> Added type hints to function (+ formatting)
+=======
+def resnet_v1(input_shape: np.array, depth: int, num_classes: int = 10) -> Model:
+>>>>>>> 9b312b090e73ed91182e93b0a9c8be219045ba84
     """ResNet Version 1 Model builder [a]
 
     Stacks of 2 x (3 x 3) Conv2D-BN-ReLU
