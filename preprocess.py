@@ -14,12 +14,13 @@ def preprocess(
     for X, y in image_iterator:
         # for each image in batch
         for i in range(X.shape[0]):
+            grey_img = np.mean(X[i], -1)
             plt.subplot(121)
-            plt.imshow(X[i])
+            plt.imshow(grey_img)
             plt.subplot(122)
-            test = fft2(X[i])
-            plt.imshow(20 * np.log(np.abs(fftshift(test))))
+            hann = grey_img * np.hanning(grey_img.shape[0])
+            f_transformed = fft2(grey_img)
+            plt.imshow(np.abs(fftshift(f_transformed)))
             plt.show()
-            # fftn()
         yield X, y
     return
