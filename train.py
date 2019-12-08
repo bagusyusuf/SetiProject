@@ -1,12 +1,8 @@
-<<<<<<< HEAD
 import os
 import time
 import argparse
 import numpy as np
 import tensorflow
-=======
-import argparse
->>>>>>> 9b312b090e73ed91182e93b0a9c8be219045ba84
 
 import numpy as np
 from resNetV1 import resnet_v1
