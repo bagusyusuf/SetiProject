@@ -1,7 +1,5 @@
 import argparse
 
-from config import Defaults
-
 import numpy as np
 from resNetV1 import resnet_v1
 from learningRateScheduler import lr_schedule
@@ -12,6 +10,9 @@ from tensorflow.keras.callbacks import (
     LearningRateScheduler,
     ReduceLROnPlateau,
 )
+
+from config import Defaults
+from preprocess import preprocess
 
 
 if __name__ == "__main__":
@@ -91,6 +92,10 @@ if __name__ == "__main__":
         target_size=(args.image_size, args.image_size),
         batch_size=args.batch_size,
     )
+    # TODO: WIP
+    preprocessed = preprocess(train_it)
+    for X, y in preprocessed:
+        pass
     valid_it = testDatagen.flow_from_directory(
         "./seti-data/primary_small/valid",
         target_size=(args.image_size, args.image_size),
