@@ -2,6 +2,7 @@ from typing import Generator, Tuple
 import cv2
 import numpy as np
 import os
+import math
 
 from numpy.fft import fft2, fftshift
 from keras_preprocessing.image.numpy_array_iterator import NumpyArrayIterator
@@ -19,10 +20,11 @@ def to_generator(
     :param batch_size: 
     :yield:
     """
-    batch_nb = X.shape[0] // batch_size
-    for i in range(batch_nb):
-        cur_idx = i * batch_size
-        yield X[cur_idx : cur_idx + batch_size], y[cur_idx : cur_idx + batch_size]
+    while True:
+        batch_nb = math.floor(X.shape[0] / batch_size)
+        for i in range(batch_nb):
+            cur_idx = i * batch_size
+            yield X[cur_idx : cur_idx + batch_size], y[cur_idx : cur_idx + batch_size]
 
 
 def fft_process(
@@ -34,18 +36,19 @@ def fft_process(
         new_X : (batch_size, image_width, image_height, 2)
         y :     (batch_size, classes_nb)
     """
-    for X, y in batch_generator:
-        batch_size = X.shape[0]
-        image_width = X.shape[1]
-        image_height = X.shape[2]
-        new_X = np.zeros((batch_size, image_width, image_height, 2))
-        # for each image in batch
-        for i in range(batch_size):
-            hann = np.mean(X[i], -1) * np.hanning(image_width)
-            tmp_fft = fftshift(fft2(hann))
-            new_X[i][:, :, 0] = np.log(np.abs(tmp_fft) ** 2)
-            new_X[i][:, :, 1] = np.arctan(tmp_fft.imag / tmp_fft.real)
-        yield new_X, y
+    while True:
+        for X, y in batch_generator:
+            batch_size = X.shape[0]
+            image_width = X.shape[1]
+            image_height = X.shape[2]
+            new_X = np.zeros((batch_size, image_width, image_height, 2))
+            # for each image in batch
+            for i in range(batch_size):
+                hann = np.mean(X[i], -1) * np.hanning(image_width)
+                tmp_fft = fftshift(fft2(hann))
+                new_X[i][:, :, 0] = np.log(np.abs(tmp_fft) ** 2)
+                new_X[i][:, :, 1] = np.arctan(tmp_fft.imag / tmp_fft.real)
+            yield new_X, y
 
 
 def preprocess(image, imageWidth, imageHeight):
