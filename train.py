@@ -80,10 +80,10 @@ if __name__ == "__main__":
     testPath = os.path.join("./seti-data/primary_small/test")
 
     # parameter
-    BATCH_SIZE = 128
+    BATCH_SIZE = 32
 
-    IMAGE_WIDTH = 96
-    IMAGE_HEIGHT = 96
+    IMAGE_WIDTH = 224
+    IMAGE_HEIGHT = 224
 
     print("load data")
 
@@ -231,4 +231,4 @@ if __name__ == "__main__":
     scores = model.evaluate(xTest, yTest, verbose=0)
     print("128Elapsed time: {}".format(hms_string(elapsed_time)))
     print(scores)
-    model.save('./model/test_96_resV1.h5')
+    model.save('./model/244-raw-sbstrack_mean.h5')
