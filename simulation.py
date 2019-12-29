@@ -9,6 +9,7 @@ import cv2
 import operator
 
 root = Tk()
+root.title("predicion apps")
 root.geometry("460x280+300+150")
 root.resizable(width=False, height=False)
 
@@ -116,7 +117,7 @@ predictLabel_7 = tk.Text(root, width=6, height=1, wrap=WORD)
 predictLabel_7.place(x=10, y=30 + 30 + 110)
 
 meanTrain = np.load('geekfile.npy')
-new_model = tensorflow.keras.models.load_model("./model/224-89-OK.h5")
+new_model = tensorflow.keras.models.load_model("./model/my_model_89.h5")
 
 predictLabel = tk.Label(root, text="Prediction :").place(x=10, y=30 + 30 + 140)
 predictLabel_8 = tk.Text(root, width=15, height=1)
