@@ -1,5 +1,9 @@
 # SetiProject
 
+__/!\ You can download the project with the full dataset and a trained model at https://drive.google.com/file/d/1a8cjDOg6dtktOSBwwQDMR--lDwZVSDca/view__
+__Otherwise, you will have to download the dataset here : https://www.kaggle.com/tentotheminus9/seti-data, put it under the seti-data folder and train the model yourself__
+
+
 ### prerequisites
 
 first of all, you need to install the dependencies : 
