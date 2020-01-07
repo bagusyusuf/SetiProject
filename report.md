@@ -18,8 +18,16 @@ header-includes:
 	```
 ---
 
+\vspace{50px}
+
 \begin{center}
 \it{the project is available on the following github : https://github.com/BagusYusuf/SetiProject}
+\end{center}
+
+\vspace{50px}
+
+\begin{center}
+\it{the project, including the full dataset and a trained model, is available through the following link :\\https://drive.google.com/file/d/1a8cjDOg6dtktOSBwwQDMR-{}-lDwZVSDca/view?usp=sharing}
 \end{center}
 
 \newpage
