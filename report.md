@@ -4,7 +4,6 @@ author: |
 	```{=latex}
 	Naufal Said \\ \texttt{TODO} \and Bagus Yusuf \\ \texttt{107522613} \and Arthur Amalvy \\ \texttt{108522605}
 	```
-subtitle: https://github.com/BagusYusuf/SetiProject
 header-includes:
 - |
 	```{=latex}
@@ -171,6 +170,18 @@ Our confusion matrix shows most errors come from wrongly classifying _noise_ sig
 To demonstrate our results, we built a simple GUI using python and tk. Using this GUI, an user can select any spectrogram and see the prediction of our model (provided he trained the model beforehand).
 
 ![The graphical interface](./fig/simulation.png)
+
+Using our best run, we achieve a result of _89.00_ accuracy, which is pretty high 
+
+
+![Model loss over time](./fig/modelLoss.png)
+
+The loss of our model starts to be very stable after the $100^{th}$ epoch.
+
+
+![Model accuracy over time](./fig/modelAcc.png)
+
+Similarly, our model validation accuracy stops improving after around 100 epochs.
 
 
 # Conclusion
