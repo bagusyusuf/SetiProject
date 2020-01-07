@@ -1,46 +1,36 @@
 # SetiProject
 
-### prerequisite
+### prerequisites
 
-first of all u need to install all dependecies
+first of all, you need to install the dependencies : 
 
-- python 3.X
-- numpy
-- pandas
-- sklearn
-- tensorflow 2.X
-- PIL
+```
+pip install -r requirements.txt
+```
 
-to run the simulation, you will need
-
-- tkinter
-- cv2
 
 ### training
 
-run
+to train the model, run :
 
 ```
 python3 train.py
 ```
 
-this training process will generate "mymodel.h5" model
+this training process will generate a _"mymodel.h5"_ file.
 
-or you can run jupyternotebook and open notebookVersion.ipynb
-this file will generate model called "my_model_89.h5"
+you can also run the jupyter notebook by opening _notebookVersion.ipynb_. The notebook will generate a "my_model_89.h5": file.
+
 
 ### testing
 
-open notebookVersion_test.ipynb with jupyternotebook
-and run all
+Open "notebookVersion_test.ipynb" with jupyternotebook and run all cells.
 
-by default this task will test "my_model_89.h5" model from training with jupyternotebook,
-if you train the model with the first option and want to test the model
-please change the model name on test section
+by default this task will test "my_model_89.h5" model from training with jupyternotebook, if you train the model with the first option and want to test the model please change the model name on test section.
 
 ### simulation
 
-run this
+run the following command :
 
 ```
 python3 simulation.py

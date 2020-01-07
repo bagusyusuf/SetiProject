@@ -4,3 +4,6 @@ __pycache__/
 
 # Ignore vscode folder
 .vscode/
+
+# python env folder
+env/
