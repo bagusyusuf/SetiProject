@@ -2,7 +2,7 @@
 title: Deep Learning applied to the Search for Extra-Terrestrial Intelligence
 author: |
 	```{=latex}
-	Naufal Said \\ \texttt{TODO} \and Bagus Yusuf \\ \texttt{107522613} \and Arthur Amalvy \\ \texttt{108522605}
+	Naufal Said \\ \texttt{107522612} \and Bagus Yusuf \\ \texttt{107522613} \and Arthur Amalvy \\ \texttt{108522605}
 	```
 header-includes:
 - |
@@ -173,15 +173,6 @@ To demonstrate our results, we built a simple GUI using python and tk. Using thi
 
 Using our best run, we achieve a result of _89.00_ accuracy, which is pretty high 
 
-
-![Model loss over time](./fig/modelLoss.png)
-
-The loss of our model starts to be very stable after the $100^{th}$ epoch.
-
-
-![Model accuracy over time](./fig/modelAcc.png)
-
-Similarly, our model validation accuracy stops improving after around 100 epochs.
 
 
 # Conclusion
