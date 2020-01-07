@@ -1,7 +1,13 @@
 ---
 title: Deep Learning applied to the Search for Extra-Terrestrial Intelligence
-author: Naufal Said, Bagus Yusuf, Arthur Amalvy
-header-include: |
+author: |
+	```{=latex}
+	Naufal Said \\ \texttt{TODO} \and Bagus Yusuf \\ \texttt{107522613} \and Arthur Amalvy \\ \texttt{108522605}
+	```
+subtitle: https://github.com/BagusYusuf/SetiProject
+header-includes:
+- |
+	```{=latex}
 	\usepackage{float}
 	\let\origfigure\figure
 	\let\endorigfigure\endfigure
@@ -10,7 +16,12 @@ header-include: |
 	} {
 		\endorigfigure
 	}
+	```
 ---
+
+\begin{center}
+\it{the project is available on the following github : https://github.com/BagusYusuf/SetiProject}
+\end{center}
 
 \newpage
 
@@ -136,27 +147,35 @@ To increase our performace, we use _image data augmentation_ : We generate new, 
 +-----------------------+----------+
 | KNN (k=1)             |   19.14  | 
 +-----------------------+----------+
-| _ResNet50 (ours)_     |  _89.00_ |
+| __ResNet50 (ours)__   | __89.00__|
 +-----------------------+----------+
-| **Eefsubsee**         | **94.99**|
+| _Eefsubsee_           |  _94.99_ |
 +-----------------------+----------+
 
-Using our best run, we achieve a result of _89.00_ accuracy, which is pretty high 
-
+Using our best run, we achieve a result of _89.00_ accuracy, which is pretty high.
 
 ![Model loss over time](./fig/modelLoss.png)
 
-The loss of our model starts to be very stable after the $100^{th}$ epoch.
-
+When training, the loss of our model starts to be very stable after the $100^{th}$ epoch.  Similarly, our model validation accuracy stops improving after around 100 epochs.
 
 ![Model accuracy over time](./fig/modelAcc.png)
 
-Similarly, our model validation accuracy stops improving after around 100 epochs.
+
+![Confusion matrix](./fig/confusion.jpg)
+
+Our confusion matrix shows most errors come from wrongly classifying _noise_ signals as _bright pixel_, and _narrowband_ as _narrowband drd_. This is not a surprise, as those signals seems pretty similar to our human eye.
+
+
+# Graphical interface
+
+To demonstrate our results, we built a simple GUI using python and tk. Using this GUI, an user can select any spectrogram and see the prediction of our model (provided he trained the model beforehand).
+
+![The graphical interface](./fig/simulation.png)
 
 
 # Conclusion
 
-Our model performance largely outperforms our weak baselines, and delivers good results, but falls short of Eesubsee (the SETI competition winning team) impressive work, which shows we still have a lot of room for improvements.
+Our model performance largely outperforms our weak baselines, and delivers good results, but falls short of Eefsubsee (the SETI competition winning team) impressive work __[3]__, which shows we still have a lot of room for improvements. 
 
 \newpage
 
